@@ -1,0 +1,14 @@
+[
+        {
+            "id": 5,
+            "Writable": "true",
+            "Point Name": "Enlightened facade state name",
+            "Volttron Point Name": "glare",
+            "Units": "dgps",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 100,
+            "Starting Value": 100,
+            "Type": "Float",
+            "Notes": ""
+        }
+    ]

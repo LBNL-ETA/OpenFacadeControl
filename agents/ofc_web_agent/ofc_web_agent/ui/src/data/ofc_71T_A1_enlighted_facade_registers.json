@@ -1,0 +1,63 @@
+{
+    "registers": [
+        {
+            "id": 5,
+            "Writable": "true",
+            "Point Name": "Enlightened facade state point name",
+            "Volttron Point Name": "facade state",
+            "Units": "state",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 3,
+            "Starting Value": 0,
+            "Type": "integer",
+            "Notes": ""
+        }
+    ]
+}
+
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "registers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"  
+            },
+            "Writable": {
+              "type": "string"
+            },
+            "Point Name": {
+              "type": "string"
+            },
+            "Volttron Point Name": {
+              "type": "string"  
+            },
+            "Units": {
+              "type": "string"
+            },
+            "Sensor Reading Min": {
+              "type": "number"
+            },
+            "Sensor Reading Max": {
+              "type": "number"
+            },
+            "Starting Value": {
+              "type": "number"
+            },
+            "Type": {
+              "type": "string"
+            },
+            "Notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,14 @@
+[
+        {
+            "id": 5,
+            "Writable": "true",
+            "Point Name": "Hunter Douglas Illuminance",
+            "Volttron Point Name": "illuminance",
+            "Units": "lux",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 10000,
+            "Starting Value": 100,
+            "Type": "Float",
+            "Notes": ""
+        }
+    ]

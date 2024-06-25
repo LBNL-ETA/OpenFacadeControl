@@ -1,0 +1,14 @@
+[
+        {
+            "id": 2,
+            "Writable": "false",
+            "Point Name": "Cree occupancy point name",
+            "Volttron Point Name": "occupancy",
+            "Units": "%",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 100,
+            "Starting Value": 100,
+            "Type": "Float",
+            "Notes": ""
+        }
+    ]

@@ -1,0 +1,14 @@
+[
+        {
+            "id": 11,
+            "Writable": "true",
+            "Point Name": "Cree lights point name",
+            "Volttron Point Name": "light level",
+            "Units": "%",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 1,
+            "Starting Value": 1,
+            "Type": "Float",
+            "Notes": ""
+        }
+    ]

@@ -1,0 +1,63 @@
+{
+    "registers": [
+        {
+            "id": 11,
+            "Writable": "true",
+            "Point Name": "Cree lights point name",
+            "Volttron Point Name": "light level",
+            "Units": "%",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 1,
+            "Starting Value": 1,
+            "Type": "Float",
+            "Notes": ""
+        }
+    ]
+}
+
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "registers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"  
+            },
+            "Writable": {
+              "type": "string"
+            },
+            "Point Name": {
+              "type": "string"
+            },
+            "Volttron Point Name": {
+              "type": "string"  
+            },
+            "Units": {
+              "type": "string"
+            },
+            "Sensor Reading Min": {
+              "type": "number"
+            },
+            "Sensor Reading Max": {
+              "type": "number"
+            },
+            "Starting Value": {
+              "type": "number"
+            },
+            "Type": {
+              "type": "string"
+            },
+            "Notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+vctl config delete platform.driver devices/LBNL/71T/A/cree_light
+vctl config delete platform.driver devices/LBNL/71T/A/cree_occupancy
+vctl config delete platform.driver devices/LBNL/71T/A/enlighted_facade
+vctl config delete platform.driver devices/LBNL/71T/A/enlighted_glare
+vctl config delete platform.driver devices/LBNL/71T/A/hunter_douglas_illuminance
+
+vctl config delete platform.driver devices/LBNL/71T/B/cree_light
+vctl config delete platform.driver devices/LBNL/71T/B/cree_occupancy
+vctl config delete platform.driver devices/LBNL/71T/B/enlighted_facade
+vctl config delete platform.driver devices/LBNL/71T/B/enlighted_glare
+vctl config delete platform.driver devices/LBNL/71T/B/hunter_douglas_illuminance
+
+vctl config delete platform.driver cree_light_registers.json
+vctl config delete platform.driver cree_occupancy_registers.json
+vctl config delete platform.driver enlighted_facade_registers.json
+vctl config delete platform.driver enlighted_glare_registers.json
+vctl config delete platform.driver hunter_douglas_illuminance_registers.json
+
+vctl config delete ofc.controller.room_A config
+vctl config delete ofc.control_algorithm.generic config
+
+vctl config store platform.driver cree_light_registers.json ofc/configs/cree_light_registers.json
+vctl config store platform.driver cree_occupancy_registers.json ofc/configs/cree_occupancy_registers.json
+vctl config store platform.driver enlighted_facade_registers.json ofc/configs/enlighted_facade_registers.json
+vctl config store platform.driver enlighted_glare_registers.json ofc/configs/enlighted_glare_registers.json
+vctl config store platform.driver hunter_douglas_illuminance_registers.json ofc/configs/hunter_douglas_illuminance_registers.json
+
+vctl config store platform.driver devices/LBNL/71T/A/cree_light ofc/configs/ofc_71T_A1_cree_light.config
+vctl config store platform.driver devices/LBNL/71T/A/cree_occupancy ofc/configs/ofc_71T_A1_cree_occupancy.config
+vctl config store platform.driver devices/LBNL/71T/A/enlighted_facade ofc/configs/ofc_71T_A1_enlighted_facade.config
+vctl config store platform.driver devices/LBNL/71T/A/enlighted_glare ofc/configs/ofc_71T_A1_enlighted_glare.config
+vctl config store platform.driver devices/LBNL/71T/A/hunter_douglas_illuminance ofc/configs/ofc_71T_A1_hunter_douglas_illuminance.config
+
+vctl config store platform.driver devices/LBNL/71T/B/cree_light ofc/configs/ofc_71T_B1_cree_light.config
+vctl config store platform.driver devices/LBNL/71T/B/cree_occupancy ofc/configs/ofc_71T_B1_cree_occupancy.config
+vctl config store platform.driver devices/LBNL/71T/B/enlighted_facade ofc/configs/ofc_71T_B1_enlighted_facade.config
+vctl config store platform.driver devices/LBNL/71T/B/enlighted_glare ofc/configs/ofc_71T_B1_enlighted_glare.config
+vctl config store platform.driver devices/LBNL/71T/B/hunter_douglas_illuminance ofc/configs/ofc_71T_B1_hunter_douglas_illuminance.config
+
+vctl config store ofc.controller.room_A config ofc/configs/ofc_area_controller_example.config
+vctl config store ofc.control_algorithm.generic config ofc/configs/ofc_generic_control_algorithm.config

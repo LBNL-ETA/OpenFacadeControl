@@ -1,0 +1,48 @@
+import { useState } from 'react';
+
+function App() {
+
+  const [data, setData] = useState({});
+
+  const handleGet = async () => {
+    // make GET request
+    const response = await fetch('/my_endpoint');  
+    const json = await response.json();
+    setData(json);
+  }
+
+  const handleSubmit = async () => {
+    // make POST request
+    const response = await fetch('/my_endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'  
+      },
+      body: JSON.stringify(data)
+    });
+  }
+
+  return (
+    <div>
+      <button onClick={handleGet}>Get Data</button>
+      <button onClick={handleSubmit}>Submit</button>
+
+      <form>
+        {Object.keys(data).map(key => {
+          return (
+            <div key={key}>
+              <label>{key}</label>
+              <input 
+                type="text"
+                value={data[key]}
+                onChange={e => setData({...data, [key]: e.target.value})} 
+              />
+            </div>
+          )
+        })}
+      </form>
+    </div>
+  );
+}
+
+export default App;

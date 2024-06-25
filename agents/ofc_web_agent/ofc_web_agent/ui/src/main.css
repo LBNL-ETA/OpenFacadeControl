@@ -1,0 +1,26 @@
+body {
+  background-color: #0A0A0A; /* Set the background color */
+  color: #FFFFFF; /* Set the text color */
+  font-family: 'Arial', sans-serif; /* Use the desired font */
+}
+
+/* Style inputs to match the theme */
+input[type="datetime-local"], input[type="date"], input[type="time"], button {
+  background-color: #2C2C2C; /* Darker background for input */
+  border: 1px solid #333; /* Subtle border */
+  color: #FFFFFF; /* Light text */
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Apply styles to buttons */
+button {
+  background-color: #1E88E5; /* Use brand color or match with theme */
+  cursor: pointer;
+}
+
+/* Additional styles for the chart component */
+.ag-theme-balham-dark {
+  height: 100%;
+  width: 100%;
+}

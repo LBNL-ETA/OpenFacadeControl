@@ -1,0 +1,14 @@
+[
+        {
+            "id": 5,
+            "Writable": "true",
+            "Point Name": "Enlightened facade state point name",
+            "Volttron Point Name": "facade state",
+            "Units": "state",
+            "Sensor Reading Min": 0,
+            "Sensor Reading Max": 3,
+            "Starting Value": 0,
+            "Type": "integer",
+            "Notes": ""
+        }
+    ]
