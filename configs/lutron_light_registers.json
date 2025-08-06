@@ -1,0 +1,15 @@
+[
+    {
+        "Writable": "true",
+        "Point Name": "Lutron light dimmer level",
+        "Volttron Point Name": "light_level",
+        "Units": "%",
+        "Sensor Reading Min": 0,
+        "Sensor Reading Max": 100,
+        "Starting Value": 50,
+        "Type": "Float",
+        "Notes": "Lutron dimmer output level (0-100%)",
+        "area_name": "Living Room",
+        "output_number": 1
+    }
+]
