@@ -1,0 +1,125 @@
+{
+  "template_name": "Research Laboratory",
+  "template_version": "1.0",
+  "description": "Configuration template for research laboratory spaces",
+  "building": {
+    "type": "laboratory",
+    "size_category": "medium",
+    "year_built": "new_construction",
+    "geometry": {
+      "room_width": 5.0,
+      "room_height": 4.0,
+      "room_depth": 6.0,
+      "window_width": 2.5,
+      "window_height": 3.0,
+      "window_sill": 1.0,
+      "window_count": 3,
+      "orientation": 90,
+      "floor_area": 30.0,
+      "ceiling_height": 4.0,
+      "window_to_wall_ratio": 0.3
+    },
+    "facade_system": "automated_blind",
+    "hvac_system": "constant_volume",
+    "lighting_system": "high_output_LED",
+    "controls": {
+      "daylight_control": true,
+      "occupancy_control": false,
+      "demand_response": false
+    },
+    "occupancy": {
+      "max_occupants": 6,
+      "occupant_density": 0.2,
+      "schedule": "laboratory_extended",
+      "occupant_direction": "variable",
+      "occupant_distance": 1.5,
+      "brightness_preference": 800,
+      "glare_tolerance": 18
+    },
+    "thermal": {
+      "r_value_wall": 4.0,
+      "r_value_roof": 6.0,
+      "infiltration_rate": 0.05,
+      "thermal_mass": "high",
+      "equipment_heat_gain": 2000
+    }
+  },
+  "afc": {
+    "optimization_horizon": 12,
+    "timestep_minutes": 30,
+    "comfort_weights": {
+      "glare": 0.4,
+      "daylight": 0.4,
+      "energy": 0.2
+    },
+    "control_priorities": {
+      "occupant_comfort": 0.5,
+      "task_lighting": 0.3,
+      "energy_efficiency": 0.2
+    },
+    "constraints": {
+      "min_daylight_factor": 0.05,
+      "max_glare_dgp": 0.3,
+      "min_illuminance": 800,
+      "temp_range_occupied": {"min": 20, "max": 24},
+      "temp_range_unoccupied": {"min": 18, "max": 26}
+    }
+  },
+  "devices": {
+    "facade": [
+      {
+        "type": "automated_blind",
+        "zones": ["zone_0", "zone_1", "zone_2"],
+        "control_range": {"min": 0.0, "max": 1.0},
+        "response_time": 60,
+        "slat_angle_control": true,
+        "states": {
+          "0.0": {"description": "Fully closed"},
+          "0.25": {"description": "25% open"},
+          "0.5": {"description": "50% open"},
+          "0.75": {"description": "75% open"},
+          "1.0": {"description": "Fully open"}
+        }
+      }
+    ],
+    "lighting": [
+      {
+        "type": "high_output_led",
+        "zones": ["zone_0", "zone_1", "zone_2"],
+        "control_range": {"min": 0.1, "max": 1.0},
+        "power_rating": 50,
+        "efficacy": 140,
+        "color_temperature_control": true
+      }
+    ],
+    "hvac": [
+      {
+        "type": "constant_volume",
+        "zones": ["zone_0", "zone_1", "zone_2"],
+        "control_type": "temperature",
+        "capacity": {"cooling": 8000, "heating": 5000},
+        "ventilation_rate": 10
+      }
+    ]
+  },
+  "sensors": {
+    "required": [
+      "occupancy_sensor",
+      "illuminance_sensor",
+      "glare_sensor", 
+      "temperature_sensor",
+      "co2_sensor"
+    ],
+    "optional": [
+      "humidity_sensor",
+      "air_quality_sensor",
+      "noise_sensor"
+    ],
+    "sampling_interval": 30
+  },
+  "weather": {
+    "required_parameters": ["dni", "dhi", "temp_air", "wind_speed", "humidity"],
+    "forecast_horizon": 24,
+    "update_frequency": 900
+  }
+}

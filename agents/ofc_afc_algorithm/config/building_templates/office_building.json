@@ -1,0 +1,119 @@
+{
+  "template_name": "Standard Office Building",
+  "template_version": "1.0",
+  "description": "Configuration template for standard commercial office buildings",
+  "building": {
+    "type": "office",
+    "size_category": "medium",
+    "year_built": "new_construction",
+    "geometry": {
+      "room_width": 4.0,
+      "room_height": 3.5,
+      "room_depth": 5.0,
+      "window_width": 2.0,
+      "window_height": 2.8,
+      "window_sill": 0.7,
+      "window_count": 2,
+      "orientation": 180,
+      "floor_area": 20.0,
+      "ceiling_height": 3.5,
+      "window_to_wall_ratio": 0.4
+    },
+    "facade_system": "ec-71t",
+    "hvac_system": "vav_with_reheat",
+    "lighting_system": "LED",
+    "controls": {
+      "daylight_control": true,
+      "occupancy_control": true,
+      "demand_response": true
+    },
+    "occupancy": {
+      "max_occupants": 4,
+      "occupant_density": 0.2,
+      "schedule": "office_standard",
+      "occupant_direction": "s",
+      "occupant_distance": 2.0,
+      "brightness_preference": 400,
+      "glare_tolerance": 22
+    },
+    "thermal": {
+      "r_value_wall": 3.5,
+      "r_value_roof": 5.0,
+      "infiltration_rate": 0.1,
+      "thermal_mass": "medium"
+    }
+  },
+  "afc": {
+    "optimization_horizon": 24,
+    "timestep_minutes": 60,
+    "comfort_weights": {
+      "glare": 0.25,
+      "daylight": 0.35,
+      "energy": 0.4
+    },
+    "control_priorities": {
+      "energy_efficiency": 0.4,
+      "occupant_comfort": 0.35,
+      "equipment_longevity": 0.15,
+      "peak_demand": 0.1
+    },
+    "constraints": {
+      "min_daylight_factor": 0.02,
+      "max_glare_dgp": 0.4,
+      "temp_range_occupied": {"min": 20, "max": 26},
+      "temp_range_unoccupied": {"min": 16, "max": 30}
+    }
+  },
+  "devices": {
+    "facade": [
+      {
+        "type": "electrochromic_window",
+        "zones": ["zone_0", "zone_1"],
+        "control_range": {"min": 0.0, "max": 3.0},
+        "response_time": 300,
+        "states": {
+          "0": {"tvis": 0.01, "description": "Fully tinted"},
+          "1": {"tvis": 0.18, "description": "Lightly tinted"},
+          "2": {"tvis": 0.40, "description": "Moderately tinted"},
+          "3": {"tvis": 0.60, "description": "Clear"}
+        }
+      }
+    ],
+    "lighting": [
+      {
+        "type": "dimmable_led",
+        "zones": ["zone_0", "zone_1"],
+        "control_range": {"min": 0.0, "max": 1.0},
+        "power_rating": 25,
+        "efficacy": 120
+      }
+    ],
+    "hvac": [
+      {
+        "type": "vav_terminal",
+        "zones": ["zone_0", "zone_1"],
+        "control_type": "temperature",
+        "capacity": {"cooling": 5000, "heating": 3000}
+      }
+    ]
+  },
+  "sensors": {
+    "required": [
+      "occupancy_sensor",
+      "illuminance_sensor", 
+      "glare_sensor",
+      "temperature_sensor"
+    ],
+    "optional": [
+      "co2_sensor",
+      "humidity_sensor",
+      "motion_sensor"
+    ],
+    "sampling_interval": 60
+  },
+  "weather": {
+    "required_parameters": ["dni", "dhi", "temp_air", "wind_speed"],
+    "forecast_horizon": 48,
+    "update_frequency": 1800
+  }
+}
